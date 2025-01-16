@@ -1,0 +1,82 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>welcome</h1>
+  
+    <form action="/user/logout" method="post">
+        <button type="submit">Logout</button>
+    </form>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .home-btn {
+            background-color: #3498db;
+            color: #fff;
+        }
+        .logout-btn {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Home Page</h1>
+
+        <!-- Home Button -->
+        <a href="/user/home">
+            <button class="home-btn">Home</button>
+        </a>
+
+        <!-- Logout Button -->
+        <form action="/user/logout" method="post">
+            <button type="submit">Logout</button>
+        </form>
+        <!-- <a href="/user/logout">
+            <button class="logout-btn">Logout</button>
+        </a> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <link rel="stylesheet" href="/style/userlogin.css">
+</head>
+<body>
+  <div class="container">
+    <div class="text">Sign Up Form</div>
+    <form method="post" action="/user/register">
+
+      <% if (message) { %>
+        <div class="alert"><%= message %></div>
+      <% } %>
+
+      <!-- Name Field -->
+      <div class="field">
+        <input type="text" id="name" name="name" placeholder="Name" >
+        <label>Username</label>
+      </div>
+
+      <!-- Email Field -->
+      <div class="field">
+        <input type="email" id="email" name="email" placeholder="Email" >
+        <label>Email</label>
+      </div>
+
+      <!-- Password Field -->
+      <div class="field">
+        <input type="password" id="password" name="password" placeholder="Password" >
+        <label>Password</label>
+      </div>
+
+      <!-- Confirm Password Field -->
+      <div class="field">
+        <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" >
+        <label>Confirm Password</label>
+      </div>
+
+      <button type="submit">Sign Up</button>
+
+      <div class="login">Already a member?
+        <a href="/user/login">Log in here</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

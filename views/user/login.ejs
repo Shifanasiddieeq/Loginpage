@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="/style/userlogin.css">
+</head>
+<body>
+  <div class="container">
+    <div class="text">Login Form</div>
+    <form action="/user/login" method="post">
+      <% if (message) { %>
+        <div class="alert"><%= message %></div>
+      <% } %>
+
+      <!-- Email Field -->
+      <div class="field">
+        <input type="text" name="email" placeholder="Email" id="email" >
+        <label>Email</label>
+      </div>
+
+      <!-- Password Field -->
+      <div class="field">
+        <input type="password" name="password" placeholder="Password" id="password" >
+        <label>Password</label>
+      </div>
+
+      <button type="submit">Log in</button>
+
+      <div class="signup">Not a member?
+        <a href="/user/register">Sign up now</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

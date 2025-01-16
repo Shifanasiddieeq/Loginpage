@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/style/dashbord.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <h1>Admin Dashboard</h1>
+        <a href="/admin/logout"><button class="logout-btn">Logout</button></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h2>User Management</h2>
+        <form action="/admin/search">
+            <input type="search" name="search">
+            <button type="submit">search</button>
+        </form>
+        <button class="add-user-btn" onclick="openAddUserModal()">Add User</button>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% users.forEach(function(user, index) { %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                      <button class="edit-btn" onclick="openEditModal('<%= user._id %>','<%= user.email %>')">Edit</button>
+                      <button class="delete-btn" onclick="openDeleteModal('<%= user._id %>')">Delete</button>
+                    </td>
+                  </tr>
+                <% }) %>
+            </tbody>
+              
+            
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editModal')">&times;</span>
+            <h2>Edit User</h2>
+            <form id="editForm" action="/admin/edit-user" method="post">
+                <input type="hidden" id="id" name="id">
+                
+                <label for="userEmail">User Email:</label>
+                <input type="text" id="email" name="email" >
+
+                <label for="newPassword">New Password:</label>
+                <input type="text" id="newPassword" name="password" >
+
+                <button type="submit" class="submit-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('deleteModal')">&times;</span>
+            <h2>Delete Confirmation</h2>
+            <p>Are you sure you want to delete this user?</p>
+            <button class="confirm-delete-btn" onclick="confirmDelete()">Yes, Delete</button>
+            <button class="cancel-btn" onclick="closeModal('deleteModal')">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addUserModal')">&times;</span>
+            <h2>Add New User</h2>
+            <form id="addUserForm" action="/admin/add-user" method="post">
+                <label for="addUsername">Email:</label>
+                <input type="text" id="email" name="email" required>
+                <label for="addPassword">Password:</label>
+                <input type="password" id="addPassword" name="password" required>
+                <button type="submit" class="submit-btn">Add User</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+
+function openEditModal(id,email) {
+    document.getElementById('editModal').style.display = 'flex';
+    document.getElementById('id').value = id;
+    document.getElementById('email').value = email
+}
+
+let userId 
+
+function openDeleteModal(Id) {
+    userId = Id
+    document.getElementById('deleteModal').style.display = 'flex';
+}
+
+
+function openAddUserModal() {
+    document.getElementById('addUserModal').style.display = 'flex';
+}
+
+
+
+    </script>
+
+    <script src="/script/script.js"></script>
+</body>
+</html>
